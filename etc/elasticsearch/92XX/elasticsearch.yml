@@ -1,0 +1,10 @@
+bootstrap.system_call_filter: false
+
+path.data: /var/lib/elasticsearch/92XX
+path.logs: /var/log/elasticsearch/92XX
+
+network.host: 127.0.0.1
+
+http.port: 92XX
+
+cluster.routing.allocation.disk.threshold_enabled: false
