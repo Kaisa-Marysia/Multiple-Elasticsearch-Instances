@@ -1,0 +1,16 @@
+-Xms1024m
+-Xmx1024m
+
+
+8-13:-XX:+UseConcMarkSweepGC
+8-13:-XX:CMSInitiatingOccupancyFraction=75
+8-13:-XX:+UseCMSInitiatingOccupancyOnly
+
+14-:-XX:+UseG1GC
+14-:-XX:G1ReservePercent=25
+14-:-XX:InitiatingHeapOccupancyPercent=30
+
+-Djava.io.tmpdir=${ES_TMPDIR}
+
+
+-XX:+HeapDumpOnOutOfMemoryError
