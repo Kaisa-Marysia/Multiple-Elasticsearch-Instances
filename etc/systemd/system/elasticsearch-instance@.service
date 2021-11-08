@@ -19,6 +19,8 @@ WorkingDirectory=/usr/share/elasticsearch
 User=elasticsearch
 Group=elasticsearch
 
+ExecStartPre=-/bin/mkdir -p /var/log/elasticsearch/%i
+ExecStartPre=-/usr/share/elasticsearch/bin/elasticsearch-keystore create
 ExecStart=/usr/share/elasticsearch/bin/systemd-entrypoint -p ${PID_DIR}/%i.pid --quiet
 
 StandardOutput=journal
