@@ -1,0 +1,37 @@
+[Unit]
+Description="Elasticsearch on port %i"
+Documentation=https://www.elastic.co
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=notify
+RuntimeDirectory=elasticsearch
+PrivateTmp=true
+Environment=ES_HOME=/usr/share/elasticsearch
+Environment=ES_PATH_CONF=/etc/elasticsearch/%i
+Environment=PID_DIR=/var/run/elasticsearch
+Environment=ES_SD_NOTIFY=true
+Environment=ES_STARTUP_SLEEP_TIME=5
+
+WorkingDirectory=/usr/share/elasticsearch
+
+User=elasticsearch
+Group=elasticsearch
+
+ExecStart=/usr/share/elasticsearch/bin/systemd-entrypoint -p ${PID_DIR}/%i.pid --quiet
+
+StandardOutput=journal
+StandardError=inherit
+LimitNOFILE=65535
+LimitNPROC=4096
+LimitAS=infinity
+LimitFSIZE=infinity
+TimeoutStopSec=0
+KillSignal=SIGTERM
+KillMode=process
+SendSIGKILL=no
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
