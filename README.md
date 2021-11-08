@@ -59,4 +59,4 @@ $ systemctl enable elasticsearch-instance@9200
 
 ## Add more instances
 
-To create a new instance just make a new dir `/etc/elasticsearch/9201` and copy the config files from this repository or of a other instance. Edit the `elasticsearch.yml` and replace the portnumber with 9201 (or that one u want to use).
+To create a new instance just make a new dir `/etc/elasticsearch/9201` and copy the config files from this repository or of a other instance. Edit the `elasticsearch.yml` and replace the portnumber with 9201 (or that one u want to use) and start the instance `$ systemctl start elasticsearch-instance@9201`.
